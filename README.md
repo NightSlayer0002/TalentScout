@@ -1,16 +1,16 @@
 # 🎯 TalentScout Hiring Assistant
 
-An AI-powered screening interview chatbot built with **Streamlit** and **Groq/Llama**. Candidates interact with "Scout", a professional hiring assistant that collects their information, asks tailored technical questions, and saves structured data — all through a polished chat interface.
+An AI-powered screening interview chatbot built with **Streamlit** and **Groq/Llama**. Candidates interact with "Scout", a professional hiring assistant that collects their information, asks tailored technical questions, and saves structured data, all through a polished chat interface.
 
 ---
 
 ## 📖 Project Overview
 
-**TalentScout** is a fictional tech recruitment agency. This application serves as the agency's first-round screening tool. Instead of scheduling a live call with a recruiter, candidates chat with **Scout** — an AI assistant that:
+**TalentScout** is a fictional tech recruitment agency. This application serves as the agency's first-round screening tool. Instead of scheduling a live call with a recruiter, candidates chat with **Scout**, an AI assistant that:
 
 1. Greets the candidate and explains the process
 2. Collects personal & professional details one field at a time
-3. Generates 3–5 tailored technical questions **per technology** in the candidate's stack
+3. Generates 3-5 tailored technical questions **per technology** in the candidate's stack
 4. Saves all collected data as a structured JSON file
 5. Handles exit keywords, off-topic messages, and edge cases gracefully
 
@@ -55,7 +55,7 @@ The entire interview takes approximately 10–15 minutes and requires no human r
 ### Prerequisites
 
 - **Python 3.10 or higher** installed
-- A **Groq/Llama API key** ([get one free here](https://console.groq.com/keys)) — no credit card required
+- A **Groq/Llama API key** ([get one free here](https://console.groq.com/keys)) [no credit card required :)]
 
 ### Step-by-step Setup
 
@@ -103,7 +103,7 @@ The app will open automatically in your browser at `http://localhost:8501`.
 1. **Start**: The app loads and Scout greets you automatically
 2. **Answer questions**: Scout asks for your info one field at a time:
    - Full Name → Email → Phone → Years of Experience → Desired Position(s) → Location → Tech Stack
-3. **Technical questions**: After you list your tech stack, Scout generates 3–5 questions per technology
+3. **Technical questions**: After you list your tech stack, Scout generates 3-5 questions per technology
 4. **Answer or skip**: Respond to the technical questions in any order
 5. **End the interview**: Scout will close automatically after tech questions, or type `exit`/`done`/`bye` anytime
 6. **Export**: Click the "📥 Export Summary" button in the sidebar to download your data
@@ -115,10 +115,10 @@ The app will open automatically in your browser at `http://localhost:8501`.
 
 ```
 TalentScout/
-├── app.py                  # Streamlit UI — layout, session state, chat loop
-├── chatbot.py              # TalentScoutChatbot class — Groq API wrapper
+├── app.py                  # Streamlit UI: layout, session state, chat loop
+├── chatbot.py              # TalentScoutChatbot class: Groq API wrapper
 ├── prompts.py              # SYSTEM_PROMPT + generate_tech_questions_prompt()
-├── data_handler.py         # CandidateDataHandler — extract, save, retrieve
+├── data_handler.py         # CandidateDataHandler: extract, save, retrieve
 ├── utils.py                # Pure helpers: validation, exit detection, sentiment
 ├── candidates/             # Auto-created; stores candidate JSON files
 │   └── .gitkeep
@@ -159,7 +159,7 @@ On Conversation End:
 
 The system prompt in `prompts.py` uses a **multi-layered instruction architecture**:
 
-1. **Role Definition**: The model is given a specific persona ("Scout") with clear behavioural traits — warm, professional, encouraging. This creates consistency across all responses.
+1. **Role Definition**: The model is given a specific persona ("Scout") with clear behavioural traits like warm, professional, encouraging. This creates consistency across all responses.
 
 2. **Stage-based Flow Control**: The prompt defines 4 numbered stages (Greeting, Info Collection, Tech Questions, Closing). The model is explicitly told to follow them in order and **never skip ahead**. This replaces traditional state-machine logic with LLM-native instruction following.
 
